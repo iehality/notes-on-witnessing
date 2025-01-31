@@ -76,7 +76,7 @@ $FP$ を多項式時間計算可能な関数の為す計算複雑性クラスと
 #let div2(x) = $floor(#x\/2)$
 
 
-算術の言語に $x |-> div2(x),$ $x |-> size(x)$, そして smush function $(x, y) |-> x smash y$
+算術の言語に $x |-> div2(x),$ $x |-> size(x)$, そして smash function $(x, y) |-> x smash y$
 
 $
   n smash m = 2^(size(n) dot size(m))
@@ -89,10 +89,10 @@ $
   (forall x <= size(t)), (exists x <= size(t))
 $
 
-#definition[鋭有界論理式][
+#definition[
   $Sigmab(i)$, $Pib(i)$ は次を満たす最小の $BALang$-論理式のクラスである．
   $
-    Sigmab(0) = Pib(0) = "現れる量化子が全て鋭有界量化子である論理式から為るクラス" \
+    Sigmab(0) = Pib(0) = "鋭有界論理式のクラス" = "現れる量化子が全て鋭有界量化子である論理式から為るクラス" \
     Sigmab(i) union Pib(i) subset.eq Sigmab(i + 1) sect Pib(i + 1) \
     phi, psi in Sigmab(i + 1) ==>
       phi and psi, phi or psi, (forall x < size(t))phi, (exists x < size(t))phi in Sigmab(i+1), not phi in Pib(i+1) \
@@ -327,7 +327,7 @@ $
     w wt_i phi or psi &:= [(w)_0 wt_i phi] or [(w)_1 wt_i psi] \
     w wt_i (forall x <= size(t))phi(x) &:= (forall x <= size(t))[(w)_x wt_i phi(x)] \
     w wt_i (exists x <= size(t))phi(x) &:= (exists x <= size(t))[w wt_i phi(x)] \
-    w wt_i (exists x <= t)phi(x) &:= lr(|(w)_0|) <= t and [(w)_1 wt_i phi((w)_0)]
+    w wt_i (exists x <= t)phi(x) &:= (w)_0 <= t and [(w)_1 wt_i phi((w)_0)]
   $
 ]
 
@@ -338,13 +338,21 @@ $arrow(w) = w_0, w_1, ...$, $Gamma = phi_0, phi_1, ...$ によって $arrow(w) w
 
 #lemma[
   $i >= 1$, $phi in Sigmab(i)$ とする．
-  1. $w wt_i phi$  は $BS(1)$ 上で $Deltab(i)$
+  1. $w wt_i phi$  は $BS(1)$ 上で $Deltab(i)$.
   2. $BS(1) proves w wt phi --> phi$.
   3. 項 $t_phi$ が存在して $BS(i) proves phi --> (exists w <= t_phi)[w wt phi]$.
 ]<witness-basic>
 
 #lemma[
-  $i >= 1$, $phi in  Sigmab(i)$ とする． $w wt_i phi$ の真偽判定は $Squarep(i)$.
+  $i >= 1$, $phi(arrow(x)) in  Sigmab(i)$ とする． 関数
+  $
+    (w, arrow(x)) |->
+      cases(
+        1 &" if " w wt_i phi(arrow(x)),
+        0 &" if " w cancelwt_i phi(arrow(x))
+        )
+  $
+  は $Squarep(i)$.
 ]<witness-evaluate>
 #proof[ $phi$ についての帰納法． ]
 
