@@ -4,9 +4,8 @@
 
 #show: project.with(
   title: [証言定理],
-  authors: (
-    "PALALANSOUKÎ",
-  ),
+  authors: ("Palalansoukî",),
+  repo: "https://github.com/iehality/notes-on-witnessing",
 )
 
 #let uprsans(X) = $upright(sans(#X))$
@@ -114,8 +113,8 @@ $
 以降論理式は常に否定標準形を取っているとする．
 
 #definition[推件計算][
-  推件 $Gamma --> Delta$ が構造規則と以下の推論規則によって導出されるとき， $BS(i)$-証明可能であるといい，
-  $BS(i) proves Gamma --> Delta$ と書く．
+  推件 $Gamma ==> Delta$ が構造規則と以下の推論規則によって導出されるとき， $BS(i)$-証明可能であるといい，
+  $BS(i) proves Gamma ==> Delta$ と書く．
 
   #align(center)[
     #table(
@@ -127,7 +126,7 @@ $
         #proof-tree(
           rule(
             name: $uprsans(upright("I"))$,
-            $alpha --> alpha$,
+            $alpha ==> alpha$,
           )
         )
       ],
@@ -135,7 +134,7 @@ $
         #proof-tree(
           rule(
             name: $uprsans(upright("IL"))$,
-            $alpha, not alpha -->$
+            $alpha, not alpha ==>$
           )
         )
       ],
@@ -143,7 +142,7 @@ $
         #proof-tree(
           rule(
             name: $uprsans(upright("IR"))$,
-            $--> alpha, not alpha$
+            $==> alpha, not alpha$
           )
         )
       ],
@@ -151,8 +150,8 @@ $
         #proof-tree(
           rule(
             name: $uprsans(and"L")$,
-            $ phi and psi, Gamma --> , Delta $,
-            $ phi, psi, Gamma --> Delta$
+            $ phi and psi, Gamma ==> , Delta $,
+            $ phi, psi, Gamma ==> Delta$
           )
         )
       ],
@@ -160,9 +159,9 @@ $
         #proof-tree(
           rule(
             name: $uprsans(and"R")$,
-            $ Gamma --> phi and psi, Delta $,
-            $Gamma --> phi, Delta$,
-            $Gamma --> psi, Delta$
+            $ Gamma ==> phi and psi, Delta $,
+            $Gamma ==> phi, Delta$,
+            $Gamma ==> psi, Delta$
           )
         )
       ],
@@ -170,9 +169,9 @@ $
         #proof-tree(
           rule(
             name: $uprsans(or"L")$,
-            $phi or psi, Gamma --> Delta $,
-            $phi, Gamma --> Delta$,
-            $psi, Gamma --> Delta$
+            $phi or psi, Gamma ==> Delta $,
+            $phi, Gamma ==> Delta$,
+            $psi, Gamma ==> Delta$
           )
         )
       ],
@@ -180,8 +179,8 @@ $
         #proof-tree(
           rule(
             name: $uprsans(or"R")$,
-            $ Gamma --> phi or psi, Delta $,
-            $ Gamma --> phi, psi, Delta$
+            $ Gamma ==> phi or psi, Delta $,
+            $ Gamma ==> phi, psi, Delta$
           )
         )
     
@@ -190,8 +189,8 @@ $
         #proof-tree(
           rule(
             name: $uprsans(forall"L")$,
-            $ (forall x) phi(x), Gamma --> Delta $,
-            $ phi(t), Gamma --> Delta$
+            $ (forall x) phi(x), Gamma ==> Delta $,
+            $ phi(t), Gamma ==> Delta$
           )
         )
       ],
@@ -199,8 +198,8 @@ $
         #proof-tree(
           rule(
             name: $uprsans(forall"R")$,
-            $ Gamma --> (forall x) phi(x), Delta$,
-            $ Gamma --> phi(a), Delta$
+            $ Gamma ==> (forall x) phi(x), Delta$,
+            $ Gamma ==> phi(a), Delta$
           )
         )
       ],
@@ -208,8 +207,8 @@ $
         #proof-tree(
           rule(
             name: $uprsans(exists"L")$,
-            $ (exists x) phi(x), Gamma --> Delta $,
-            $ phi(a), Gamma --> Delta$
+            $ (exists x) phi(x), Gamma ==> Delta $,
+            $ phi(a), Gamma ==> Delta$
           )
         )
       ],
@@ -217,8 +216,8 @@ $
         #proof-tree(
           rule(
             name: $uprsans(exists"R")$,
-            $ Gamma --> (exists x) phi(x), Delta$,
-            $ Gamma --> phi(t), Delta$
+            $ Gamma ==> (exists x) phi(x), Delta$,
+            $ Gamma ==> phi(t), Delta$
           )
         )
       ],
@@ -226,9 +225,9 @@ $
         #proof-tree(
           rule(
             name: $uprsans("CUT")$,
-            $Gamma --> Delta$,
-            $Gamma --> phi, Delta$,
-            $phi, Gamma --> Delta$,
+            $Gamma ==> Delta$,
+            $Gamma ==> phi, Delta$,
+            $phi, Gamma ==> Delta$,
           )
         )
       ],
@@ -236,8 +235,8 @@ $
         #proof-tree(
           rule(
             name: $PIND(Sigmab(i))$,
-            $gamma(0), Gamma --> gamma(t), Delta$,
-            $gamma(div2(a)), Gamma --> gamma(a), Delta$
+            $gamma(0), Gamma ==> gamma(t), Delta$,
+            $gamma(div2(a)), Gamma ==> gamma(a), Delta$
           )
         )
       ],
@@ -245,31 +244,31 @@ $
         #proof-tree(
           rule(
             name: $uprsans("BASIC")$,
-            $ --> xi$,
+            $ ==> beta$,
           )
         )
       ],
     )
   ]
   
-  自由変数(eigenvariable) $a$ は $Gamma, Delta$ に自由に表れないとする．
-  $xi$ は $BASIC$ に含まれる開論理式であり， $alpha$ は原始論理式またはその否定， 
+  $a$ は自由変数であり $Gamma, Delta, gamma(x), t$ に自由に表れないとする．
+  $beta$ は $BASIC$ に含まれる開論理式であり， $alpha$ は原始論理式またはその否定， 
   $PIND(Sigmab(i))$ において $gamma$ (principal formula) は $Sigmab(i)$-論理式であるとする．
 ]
 
-$BS(i) proves --> phi$ のとき，これを $BS(i) proves phi$ と略記する．
+$BS(i) proves ==> phi$ のとき，これを $BS(i) proves phi$ と略記する．
 $PIND(Sigmab(i))$ を以下の推論規則に置き換えた推件計算を $BT(i)$  と呼ぶ．
 
 $
   #proof-tree(
     rule(
       name: $IND(Sigmab(i))$,
-      $gamma(0), Gamma --> gamma(t), Delta$,
-      $gamma(a), Gamma --> gamma(a + 1), Delta$
+      $gamma(0), Gamma ==> gamma(t), Delta$,
+      $gamma(a), Gamma ==> gamma(a + 1), Delta$
     )
   )
 $
-ただし $a$ はeigenvariable であり $gamma in Sigmab(i).$
+ただし $a$ は $Gamma,  Delta, gamma(x), t$ に現れず $gamma in Sigmab(i).$
 
 == $Squarep(i)$ の形式化
 
@@ -287,12 +286,12 @@ TODO
 ]
 
 #theorem[自由カット除去 free cut free][
-  $BS(i) proves Gamma --> Delta$ ならば，自由カットを持たない証明図が存在する．
+  $BS(i) proves Gamma ==> Delta$ ならば，自由カットを持たない証明図が存在する．
 ]<free-cut-free>
 
 #corollary[
   $Gamma union Delta subset.eq Sigmab(i)$ とする．
-  $BS(i) proves Gamma --> Delta$ ならば $Sigmab(i)$-論理式しか現れないような証明図が存在する．
+  $BS(i) proves Gamma ==> Delta$ ならば $Sigmab(i)$-論理式しか現れないような証明図が存在する．
 ]<free-cut-free-col>
 
 == Parikh の定理
@@ -310,46 +309,45 @@ $
 $
 ならば， 表記通り $\" angle.l \" |-> \"1, 0\"$, $\"A\" |-> \"0, A\"$, $\" angle.r\" |-> \"1,1\"$ で置換する．
 $
-  w = brak(1,0,0,A,1,0,0,B,0,C,1,1,0,D,1,0,1,1,1,1)
+  mu = brak(1,0,0,A,1,0,0,B,0,C,1,1,0,D,1,0,1,1,1,1)
 $
-木 $w$ の根から続くノードの数， それを根とする $n$ 番目の部分木を返す関数は $BS(1)$ 上 $Deltab(1)$ 定義可能であり， 
-それぞれ（記号の乱用だが） $|w|$, $(w)_n$ と表記することにする．
+木 $mu$ の根から続くノードの数， それを根とする $n$ 番目の部分木を返す関数は $BS(1)$ 上 $Deltab(1)$ 定義可能であり， 
+それぞれ（記号の乱用だが） $size(mu)$, $(mu)_n$ と表記することにする． 木を指す変数記号は $mu, eta, xi, pi, ...$ と表記する．
 
 #let wt = $class("relation", ⧐)$
 #let cancelwt = $class("relation", cancel(⧐))$
 
 #definition[
-  $i >= 1$ とする． 木（を意味する自由変数） $w$ と $phi in Sigmab(i)$ について 論理式 $w wt_i phi$ ($w$ は $phi$ を証言する)を帰納的に定義する
+  $i >= 1$ とする． 木（を意味する自由変数） $mu$ と $phi in Sigmab(i)$ について 論理式 $mu wt_i phi$ ($mu$ は $phi$ を証言する)を帰納的に定義する
   #footnote[これは一般的な記法ではない．].
   $
-    w wt_i alpha &:= alpha " if " alpha in Sigmab(i-1) union Pib(i-1) \
-    w wt_i phi and psi &:= [(w)_0 wt_i phi] and [(w)_1 wt_i psi] \
-    w wt_i phi or psi &:= [(w)_0 wt_i phi] or [(w)_1 wt_i psi] \
-    w wt_i (forall x <= size(t))phi(x) &:= (forall x <= size(t))[(w)_x wt_i phi(x)] \
-    w wt_i (exists x <= size(t))phi(x) &:= (exists x <= size(t))[w wt_i phi(x)] \
-    w wt_i (exists x <= t)phi(x) &:= (w)_0 <= t and [(w)_1 wt_i phi((w)_0)]
+    mu wt_i alpha &:= alpha " if " alpha in Sigmab(i-1) union Pib(i-1) \
+    mu wt_i phi and psi &:= [(mu)_0 wt_i phi] and [(mu)_1 wt_i psi] \
+    mu wt_i phi or psi &:= [(mu)_0 = 0 and (mu)_1 wt_i phi] or [(mu)_0 eq.not 0 and (mu)_1 wt_i psi] \
+    mu wt_i (forall x <= size(t))phi(x) &:= (forall x <= size(t))[(mu)_x wt_i phi(x)] \
+    mu wt_i (exists x <= t)phi(x) &:= (mu)_0 <= t and [(mu)_1 wt_i phi((mu)_0)]
   $
 ]
 
-$"FV"(w wt_i phi) subset.eq {w} union "FV"(phi)$ に注意．
-以降 $i$ が明らかな場合は単に $w wt phi$ と書く．
+$"FV"(mu wt_i phi) subset.eq {mu} union "FV"(phi)$ に注意．
+以降 $i$ が明らかな場合は単に $mu wt phi$ と書く．
 また論理式の列 $w_0 wt_i phi_0, space w_1 wt_i phi_1, space ...$ を
-$arrow(w) = w_0, w_1, ...$, $Gamma = phi_0, phi_1, ...$ によって $arrow(w) wt_i Gamma$ と略記する．
+$arrow(mu) = w_0, w_1, ...$, $Gamma = phi_0, phi_1, ...$ によって $arrow(mu) wt_i Gamma$ と略記する．
 
 #lemma[
   $i >= 1$, $phi in Sigmab(i)$ とする．
-  1. $w wt_i phi$  は $BS(1)$ 上で $Deltab(i)$.
-  2. $BS(1) proves w wt phi --> phi$.
-  3. 項 $t_phi$ が存在して $BS(i) proves phi --> (exists w <= t_phi)[w wt phi]$.
+  1. $mu wt phi$  は $BS(1)$ 上で $Deltab(i)$.
+  2. $BS(1) proves mu wt phi ==> phi$.
+  3. 項 $t_phi$ が存在して $BS(i) proves phi ==> (exists mu <= t_phi)[mu wt phi]$.
 ]<witness-basic>
 
 #lemma[
   $i >= 1$, $phi(arrow(x)) in  Sigmab(i)$ とする． 関数
   $
-    (w, arrow(x)) |->
+    (mu, arrow(x)) |->
       cases(
-        1 &" if " w wt_i phi(arrow(x)),
-        0 &" if " w cancelwt_i phi(arrow(x))
+        1 &" if " mu wt phi(arrow(x)),
+        0 &" if " mu cancelwt phi(arrow(x))
         )
   $
   は $Squarep(i)$.
@@ -359,139 +357,139 @@ $arrow(w) = w_0, w_1, ...$, $Gamma = phi_0, phi_1, ...$ によって $arrow(w) w
 #theorem[
   $i >= 1$, $Gamma union Delta subset.eq Sigmab(i)$ とする．
   $
-    BS(i) proves Gamma --> Delta
+    BS(i) proves Gamma ==> Delta
   $
   ならば関数 $arrow(F) = F_0, F_1, ... in Squarep(i)$ が存在して
   $
-    BS(i) proves arrow(w) wt_i Gamma --> arrow(F) (arrow(w), arrow(b)) wt_i Delta
+    BS(i) proves arrow(mu) wt Gamma ==> arrow(F) (arrow(mu), arrow(b)) wt Delta
   $
   ここで $arrow(b)$ は $Gamma, Delta$ に現れるすべての自由変数である．
 ]<witness-lemma>
 
 #proof[
-  $Gamma --> Delta$ の証明図に関する帰納法． @free-cut-free-col より現れる論理式は $Sigmab(i)$ のみとして良い．
-  / (構造規則, $uprsans("I"), uprsans("IL"), uprsans("IR"), uprsans("BASIC")$): あきらか．
+  $Gamma ==> Delta$ の証明図に関する帰納法． @free-cut-free-col より現れる論理式は $Sigmab(i)$ のみとして良い．
+  / (構造規則のとき, 証明木の根が $Sigmab(i-1)$-論理式であるとき): あきらか．
 
   / ($uprsans(and"L")$):
     証明図の末尾が以下の形であると仮定する．
     $ 
       #proof-tree(
         rule(
-          $ phi and psi, Gamma --> Delta $,
-          rule($phi, psi, Gamma --> Delta$, $dots.v$),
+          $ phi and psi, Gamma ==> Delta $,
+          rule($phi, psi, Gamma ==> Delta$, $dots.v$),
         )
       )
     $
     帰納法の仮定より，次が証明可能であるような関数 $arrow(F) in Squarep(i)$ が存在する．
     $
-      u wt phi, space v wt psi, space arrow(w) wt Gamma -->
-        arrow(F)(u, v, arrow(w), arrow(b)) wt Delta
+      eta wt phi, space xi wt psi, space arrow(mu) wt Gamma ==>
+        arrow(F)(eta, xi, arrow(mu), arrow(b)) wt Delta
     $
     関数 $arrow(G) in Squarep(i)$ を次のように定義する．
     $
-      G_k (x, arrow(w), arrow(b)) :=
-        F_k ((x)_0, (x)_1, arrow(w), arrow(b))
+      G_k (pi, arrow(mu), arrow(b)) := F_k ((pi)_0, (pi)_1, arrow(mu), arrow(b))
     $
     このとき
     $
-      x wt phi and psi, space arrow(w) wt Gamma -->
-        arrow(G)(x, arrow(w), arrow(b)) wt Delta
+      pi wt phi and psi, space arrow(mu) wt Gamma ==> arrow(G)(pi, arrow(mu), arrow(b)) wt Delta
     $
   / ($uprsans(and"R")$):
     証明図の末尾が以下の形であると仮定する．
     $ 
       #proof-tree(
         rule(
-          $ Gamma --> phi and psi, Delta $,
-          rule($Gamma --> phi, Delta$, $dots.v$),
-          rule($Gamma --> psi, Delta$, $dots.v$)
+          $ Gamma ==> phi and psi, Delta $,
+          rule($Gamma ==> phi, Delta$, $dots.v$),
+          rule($Gamma ==> psi, Delta$, $dots.v$)
         )
       )
     $
     帰納法の仮定より，次が証明可能であるような関数 $F_phi, F_psi, arrow(G), arrow(H) in Squarep(i)$ が存在する．
     $
-      arrow(w) wt Gamma &-->
-        F_phi (arrow(w), arrow(b)) wt phi, space 
-        arrow(G) (arrow(w), arrow(b)) wt Delta \
-      arrow(w) wt Gamma &-->
-        F_psi (arrow(w), arrow(b)) wt psi, space
-        arrow(H) (arrow(w), arrow(b)) wt Delta
+      arrow(mu) wt Gamma &==>
+        F_phi (arrow(mu), arrow(b)) wt phi, space 
+        arrow(G) (arrow(mu), arrow(b)) wt Delta \
+      arrow(mu) wt Gamma &==>
+        F_psi (arrow(mu), arrow(b)) wt psi, space
+        arrow(H) (arrow(mu), arrow(b)) wt Delta
     $
     次のように関数 $I$, $arrow(J)$ を定める．
     $
-      I(arrow(w), arrow(b)) &:=
-        brak(F_phi (arrow(w), arrow(b)), space F_psi (arrow(w), arrow(b))) \
-      J_k (arrow(w), arrow(b)) &:=
+      I(arrow(mu), arrow(b)) &:=
+        brak(F_phi (arrow(mu), arrow(b)), space F_psi (arrow(mu), arrow(b))) \
+      J_k (arrow(mu), arrow(b)) &:=
         cases(
-          G_k (arrow(w), arrow(b)) &" if " F_phi (arrow(w), arrow(b)) cancelwt phi,
-          H_k (arrow(w), arrow(b)) &" if " F_psi (arrow(w), arrow(b)) cancelwt psi,
+          G_k (arrow(mu), arrow(b)) &" if " F_phi (arrow(mu), arrow(b)) cancelwt phi,
+          H_k (arrow(mu), arrow(b)) &" if " F_psi (arrow(mu), arrow(b)) cancelwt psi,
           brak() &" otherwise ",
         
         )
     $
     @witness-evaluate よりこれらは共に $Squarep(i)$. このとき
     $ 
-      arrow(w) wt Gamma &-->
-        I_phi (arrow(w), arrow(b)) wt phi and psi, space 
-        arrow(J) (arrow(w), arrow(b)) wt Delta
+      arrow(mu) wt Gamma &==>
+        I_phi (arrow(mu), arrow(b)) wt phi and psi, space 
+        arrow(J) (arrow(mu), arrow(b)) wt Delta
     $
   / ($uprsans(or"L")$):
     証明図の末尾が以下の形であると仮定する．
     $     #proof-tree(
       rule(
-        $phi or psi, Gamma --> Delta $,
-        rule($phi, Gamma --> Delta$, $dots.v$),
-        rule($psi, Gamma --> Delta$, $dots.v$)
+        $phi or psi, Gamma ==> Delta $,
+        rule($phi, Gamma ==> Delta$, $dots.v$),
+        rule($psi, Gamma ==> Delta$, $dots.v$)
       ))
     $
     帰納法の仮定より，次が証明可能であるような関数 $arrow(F), arrow(G) in Squarep(i)$ が存在する．
     $
-      u wt phi, space arrow(w) wt Gamma &-->
-        arrow(F) (u, arrow(w), arrow(b)) wt Delta \
-      v wt psi, space arrow(w) wt Gamma &-->
-        arrow(G) (v, arrow(w), arrow(b)) wt Delta
+      eta wt phi, space arrow(mu) wt Gamma &==>
+        arrow(F) (eta, arrow(mu), arrow(b)) wt Delta \
+      eta wt psi, space arrow(mu) wt Gamma &==>
+        arrow(G) (eta, arrow(mu), arrow(b)) wt Delta
     $
     関数 $arrow(H)$ を次のように定める．
     $
-      H_k (x, arrow(w), arrow(b)) :=
+      H_k (x, arrow(mu), arrow(b)) :=
         cases(
-          F_k (x, arrow(w), arrow(b)) & " if " x wt phi,
-          G_k (x, arrow(w), arrow(b)) & " if " x wt psi,
-          brak() & "otherwise"
+          F_k (x, arrow(mu), arrow(b)) & "if" (x)_0 = 0,
+          G_k (x, arrow(mu), arrow(b)) & "otherwise",
         )
     $
     このとき
     $
-      x wt phi or psi, space arrow(w) wt Gamma -->
-        arrow(H) (x, arrow(w), arrow(b)) wt Delta
+      pi wt phi or psi, space arrow(mu) wt Gamma ==>
+        arrow(H) (pi, arrow(mu), arrow(b)) wt Delta
     $
   / ($uprsans(or"R")$):
     証明図の末尾が以下の形であると仮定する．
     $
     #proof-tree(
       rule(
-        $ Gamma --> phi or psi, Delta $,
-        rule($Gamma --> phi, psi, Delta$, $dots.v$)
+        $ Gamma ==> phi or psi, Delta $,
+        rule($Gamma ==> phi, psi, Delta$, $dots.v$)
       )
     )
     $
     帰納法の仮定より，次が証明可能であるような関数 $F_phi, F_psi, arrow(G) in Squarep(i)$ が存在する．
     $
-      arrow(w) wt Gamma &-->
-        F_phi (arrow(w), arrow(b)) wt phi, space
-        F_psi (arrow(w), arrow(b)) wt psi, space
-        arrow(G) (arrow(w), arrow(b)) wt Delta
+      arrow(mu) wt Gamma &==>
+        F_phi (arrow(mu), arrow(b)) wt phi, space
+        F_psi (arrow(mu), arrow(b)) wt psi, space
+        arrow(G) (arrow(mu), arrow(b)) wt Delta
     $
     関数 $arrow(H)$ を次のように定める．
     $
-      H (arrow(w), arrow(b)) :=
-        brak(F_phi (arrow(w), arrow(b)), F_psi (arrow(w), arrow(b)))
+      H (arrow(mu), arrow(b)) :=
+        cases(
+          brak(0, F_(phi)(arrow(mu), arrow(b))) &"if" F_(phi)(arrow(mu), arrow(b)) wt phi,
+          brak(1, F_(psi)(arrow(mu), arrow(b))) &"if" F_(psi)(arrow(mu), arrow(b)) wt phi
+        )
     $
     このとき
     $
-      arrow(w) wt Gamma &-->
-        H (arrow(w), arrow(b)) wt phi or psi, space
-        arrow(G) (arrow(w), arrow(b)) wt Delta
+      arrow(mu) wt Gamma &==>
+        H (arrow(mu), arrow(b)) wt phi or psi, space
+        arrow(G) (arrow(mu), arrow(b)) wt Delta
     $
 
   / ($uprsans(forall"L")$):
@@ -499,60 +497,64 @@ $arrow(w) = w_0, w_1, ...$, $Gamma = phi_0, phi_1, ...$ によって $arrow(w) w
     $
       #proof-tree(
         rule(
-          $ (forall x <= t) phi(x), Gamma --> Delta $,
-          rule($u <= t -> phi(u), Gamma --> Delta$, $dots.v$)
+          $ (forall x <= size(t)) phi(x), Gamma ==> Delta $,
+          rule($u <= size(t) -> phi(u), Gamma ==> Delta$, $dots.v$)
         )
       )
     $
     帰納法の仮定より，次が証明可能であるような関数 $arrow(F) in Squarep(i)$ が存在する．
-    $ u <= t -> u wt phi(u), space arrow(w) wt Gamma -->
-      arrow(F)(u, arrow(w), arrow(b)) wt Delta $
+    $
+      u <= |t| -> eta wt phi(u), space arrow(mu) wt Gamma ==>
+      arrow(F)(eta, arrow(mu), arrow(b)) wt Delta
+    $
     関数 $arrow(G)$ を以下のように定義する．
-    $ G_k (v, arrow(b)) :=
-      F_k ((v)_u(arrow(b)), arrow(w), arrow(b)) $
+    $ 
+      G_k (xi, arrow(mu), arrow(b)) := F_k ((xi)_(u(arrow(b))), arrow(mu), arrow(b))
+    $
     $uprsans(forall"L")$ より以下が成り立つ．
-    $ v wt  (forall x <= t)phi(x), arrow(w) wt Gamma -->
-        arrow(G)(v, arrow(w), arrow(b)) wt Delta $
+    $
+      xi wt (forall x <= t)phi(x), arrow(mu) wt Gamma ==> arrow(G)(xi, arrow(mu), arrow(b)) wt Delta
+    $
 
   / ($uprsans(forall"R")$):
     証明図の末尾が以下の形であると仮定する． 現れる論理式は $Sigmab(i)$ のみなのでこのように仮定して良い．
     $
       #proof-tree(
         rule(
-          $ Gamma --> (forall x <= t)phi(x), Delta $,
-          rule($Gamma --> a <= t -> phi(a),  Delta$, $dots.v$)
+          $ Gamma ==> (forall x <= size(t))phi(x), Delta $,
+          rule($Gamma ==> a <= size(t) -> phi(a),  Delta$, $dots.v$)
         )
       )
     $
     帰納法の仮定より，次が証明可能であるような関数 $F$ が存在する．
-    $ arrow(w) wt Gamma -->
-      a <= t -> F (arrow(w), a, arrow(b)) wt phi(a), space
-      arrow(G) (arrow(w), a, arrow(b)) wt Delta $
+    $ arrow(mu) wt Gamma ==>
+      a <= size(t) -> F(arrow(mu), a, arrow(b)) wt phi(a), space
+      arrow(G) (arrow(mu), a, arrow(b)) wt Delta $
     次のように関数 $S, H in Squarep(i)$ を定義する．
 
-    $ R (0, arrow(w), arrow(b)) &:= brak() \
-      R (c + 1, arrow(w), arrow(b)) &:=
-        R (c, arrow(w), arrow(b)) paren.t brak(F (arrow(w), c, arrow(b))) \
-      S(arrow(w), arrow(b)) &:= R (t(arrow(b)) + 1, arrow(w), arrow(b))
+    $ R (0, arrow(mu), arrow(b)) &:= brak() \
+      R (c + 1, arrow(mu), arrow(b)) &:=
+        R (c, arrow(mu), arrow(b)) paren.t brak(F (arrow(mu), c, arrow(b))) \
+      S(arrow(mu), arrow(b)) &:= R (|t(arrow(b))| + 1, arrow(mu), arrow(b))
     $
     $
-      H_k (arrow(w), arrow(b)) :=
+      H_k (arrow(mu), arrow(b)) :=
         cases(
-          G_k (arrow(w), a, arrow(b)) &
-            " if there is" a <= t(arrow(b)) "such that " F (arrow(w), a, arrow(b)) cancelwt phi(a) \
+          G_k (arrow(mu), a, arrow(b)) &
+            " if there is" a <= |t(arrow(b))| "such that " F (arrow(mu), a, arrow(b)) cancelwt phi(a) \
           brak() & " otherwise"
         )
     $
     このとき，
-    $ arrow(w) wt Gamma -->
-      S (arrow(w), arrow(b)) wt (forall x <= t)phi(x), space
-      arrow(H) (arrow(w), arrow(b)) wt Delta $
+    $ arrow(mu) wt Gamma ==>
+      S (arrow(mu), arrow(b)) wt (forall x <= t)phi(x), space
+      arrow(H) (arrow(mu), arrow(b)) wt Delta $
     #struct[
       次が証明できれば良い． これは帰納法の仮定より従う．
       $
-        a <= t and F (arrow(w), a, arrow(b)) cancelwt phi(a), space arrow(w) wt Gamma -->
+        a <= t and F (arrow(mu), a, arrow(b)) cancelwt phi(a), space arrow(mu) wt Gamma ==>
         
-        arrow(G) (arrow(w), a, arrow(b)) wt Delta
+        arrow(G) (arrow(mu), a, arrow(b)) wt Delta
       $
     ]
       
@@ -561,49 +563,50 @@ $arrow(w) = w_0, w_1, ...$, $Gamma = phi_0, phi_1, ...$ によって $arrow(w) w
     $
       #proof-tree(
         rule(
-          $ (exists x <= t) phi(x), Gamma --> Delta $,
-          rule($a <= t and phi(a), Gamma --> Delta$, $dots.v$)
+          $ (exists x <= t) phi(x), Gamma ==> Delta $,
+          rule($a <= t and phi(a), Gamma ==> Delta$, $dots.v$)
         )
       )
     $
     帰納法の仮定より，次が証明可能であるような関数 $arrow(F) in Squarep(i)$ が存在する．
     $
-      a <= t and u wt phi(a), space arrow(w) wt Gamma -->
-        arrow(F) (u, arrow(w), a, arrow(b)) wt Delta
+      a <= t and (eta wt phi(a)), space arrow(mu) wt Gamma ==>
+        arrow(F) (eta, arrow(mu), a, arrow(b)) wt Delta
     $
-    以下のように関数を定義する．
+    以下のように $arrow(G)$ を定める．
     $
-      G_k (u, arrow(w), arrow(b)) :=
-        cases(F_k (u, arrow(w), a, arrow(b)) &
-          " if there is " a <= t(arrow(b)) "such that " u wt phi(a),
-        brak() & " otherwise")
+      G_k (eta, arrow(mu), arrow(b)) :=
+        F_(k)((eta)_1, arrow(mu), (eta)_0, b)
     $
     このとき，
     $
-      u wt (exists x <= t)phi(x), space arrow(w) wt Gamma -->
-        arrow(G) (u, arrow(w), arrow(b)) wt Delta
+      eta wt (exists x <= t)phi(x), space arrow(mu) wt Gamma ==>
+        arrow(G)(eta, arrow(mu), arrow(b)) wt Delta
     $
   / ($uprsans(exists"R")$):
     証明図の末尾が以下の形であると仮定する． 現れる論理式は $Sigmab(i)$ のみなのでこのように仮定して良い．
     $
     #proof-tree(
       rule(
-        $ Gamma --> (exists x <= t) phi(x), Delta$,
-        rule($ Gamma --> u <= t and phi(u), Delta$, $dots.v$)
+        $ Gamma ==> (exists x <= t) phi(x), Delta$,
+        rule($ Gamma ==> eta <= t and phi(eta), Delta$, $dots.v$)
       )
     )
     $
     帰納法の仮定より，次が証明可能であるような関数 $F, arrow(G) in Squarep(i)$ が存在する．
     $
-      arrow(w) wt Gamma -->
-        u <= t and F (arrow(w), arrow(b)) wt phi(u), space
-        arrow(G)(arrow(w), arrow(b)) wt Delta
+      arrow(mu) wt Gamma ==>
+        eta <= t and F (arrow(mu), arrow(b)) wt phi(eta), space
+        arrow(G)(arrow(mu), arrow(b)) wt Delta
+    $
+    $
+      H(arrow(mu), arrow(b)) := brak(t(arrow(b)), F(arrow(mu), arrow(b)))
     $
     $uprsans(exists"R")$ を用いて
     $
-      arrow(w) wt Gamma -->
-        F (arrow(w), arrow(b)) wt (exists x <= t) phi(x), space
-        arrow(G)(arrow(w), arrow(b)) wt Delta
+      arrow(mu) wt Gamma ==>
+        H (arrow(mu), arrow(b)) wt (exists x <= t) phi(x), space
+        arrow(G)(arrow(mu), arrow(b)) wt Delta
     $
 
   / ($uprsans("CUT")$):
@@ -611,44 +614,44 @@ $arrow(w) = w_0, w_1, ...$, $Gamma = phi_0, phi_1, ...$ によって $arrow(w) w
     $
     #proof-tree(
       rule(
-        $Gamma --> Delta$,
-        rule($Gamma --> phi, Delta$, $dots.v$),
-        rule($phi, Gamma --> Delta$, $dots.v$),
+        $Gamma ==> Delta$,
+        rule($Gamma ==> phi, Delta$, $dots.v$),
+        rule($phi, Gamma ==> Delta$, $dots.v$),
       )
     )
     $
     帰納法の仮定より，次が証明可能であるような関数 $F, arrow(G), arrow(H) in Squarep(i)$ が存在する．
     $
-      arrow(w) wt Gamma &-->
-        F (arrow(w), arrow(b)) wt phi, space
-        arrow(G)(arrow(w), arrow(b)) wt Delta \
-      u wt phi, space arrow(w) wt Gamma &-->
-        arrow(H)(u, arrow(w), arrow(b)) wt Delta
+      arrow(mu) wt Gamma &==>
+        F (arrow(mu), arrow(b)) wt phi, space
+        arrow(G)(arrow(mu), arrow(b)) wt Delta \
+      eta wt phi, space arrow(mu) wt Gamma &==>
+        arrow(H)(eta, arrow(mu), arrow(b)) wt Delta
     $
     以下のような関数 $arrow(K)$ を定義する．
     $
-      K_k (arrow(w), arrow(b)) :=
+      K_k (arrow(mu), arrow(b)) :=
         cases(
-          arrow(G)(arrow(w), arrow(b)) &
-            " if " F (arrow(w), arrow(b)) cancelwt phi \
-          H_k (F (arrow(w), arrow(b)), arrow(w), arrow(b)) &
-            " if " F (arrow(w), arrow(b)) wt phi
+          arrow(G)(arrow(mu), arrow(b)) &
+            " if " F (arrow(mu), arrow(b)) cancelwt phi \
+          H_k (F (arrow(mu), arrow(b)), arrow(mu), arrow(b)) &
+            " if " F (arrow(mu), arrow(b)) wt phi
         )
     $
     このとき，
     $
-      arrow(w) wt Gamma &-->
-        arrow(K)(arrow(w), arrow(b)) wt Delta
+      arrow(mu) wt Gamma &==>
+        arrow(K)(arrow(mu), arrow(b)) wt Delta
     $
     #struct[
       次の２つの場合を示せばよい． いずれも帰納法の仮定より従う．
       $
-        F (arrow(w), arrow(b)) cancelwt phi, space
-        arrow(w) wt Gamma &-->
-          arrow(G)(arrow(w), arrow(b)) wt Delta \
-        F (arrow(w), arrow(b)) wt phi, space
-          arrow(w) wt Gamma &-->
-          H_k (F (arrow(w), arrow(b)), arrow(w), arrow(b)) wt Delta
+        F (arrow(mu), arrow(b)) cancelwt phi, space
+        arrow(mu) wt Gamma &==>
+          arrow(G)(arrow(mu), arrow(b)) wt Delta \
+        F (arrow(mu), arrow(b)) wt phi, space
+          arrow(mu) wt Gamma &==>
+          H_k (F (arrow(mu), arrow(b)), arrow(mu), arrow(b)) wt Delta
       $]
 
   / ($PIND(Sigmab(i))$):
@@ -656,77 +659,77 @@ $arrow(w) = w_0, w_1, ...$, $Gamma = phi_0, phi_1, ...$ によって $arrow(w) w
     $
     #proof-tree(
       rule(
-        $gamma(0), Gamma --> gamma(t), Delta$,
-        rule($gamma(div2(a)), Gamma --> gamma(a), Delta$, $dots.v$)
+        $gamma(0), Gamma ==> gamma(t), Delta$,
+        rule($gamma(div2(a)), Gamma ==> gamma(a), Delta$, $dots.v$)
       )
     )
     $
     帰納法の仮定より，次が証明可能であるような関数 $F, arrow(G) in Squarep(i)$ が存在する．
     $
-      u wt gamma(div2(a)), space arrow(w) wt Gamma -->
-        F (u, arrow(w), a, arrow(b)) wt gamma(a), space
-        arrow(G)(u, arrow(w), a, arrow(b)) wt Delta
+      eta wt gamma(div2(a)), space arrow(mu) wt Gamma ==>
+        F (eta, arrow(mu), a, arrow(b)) wt gamma(a), space
+        arrow(G)(eta, arrow(mu), a, arrow(b)) wt Delta
     $
     次のように $S$, $K$ を定義する．
     $
-      R(a, u_0, arrow(w), arrow(b)) &:=
+      R(a, xi, arrow(mu), arrow(b)) &:=
         cases(
-          u_0 &
+          xi &
           " if " a = 0,
-          F(R(div2(a), u_0, arrow(w), arrow(b)), arrow(w), a, arrow(b)) &
+          F(R(div2(a), xi, arrow(mu), arrow(b)), arrow(mu), a, arrow(b)) &
           " if " a eq.not 0
           ) \
-        S(u_0, arrow(w), arrow(b)) &:=
-          R(t(arrow(b)), u_0, arrow(w), arrow(b))
+        S(xi, arrow(mu), arrow(b)) &:=
+          R(t(arrow(b)), xi, arrow(mu), arrow(b))
     $
     $
-      H_k (a, u_0, arrow(w), arrow(b)) &:=
+      H_k (a, xi, arrow(mu), arrow(b)) &:=
         cases(
           brak()
             &" if " a = 0,
-          G_k (R(div2(a), u_0, arrow(w), arrow(b)), arrow(w), a, arrow(b))
-            &" if " a eq.not 0 "and" R(div2(a), u_0, arrow(w), arrow(b)) wt gamma(div2(a)),
-          H_k (div2(a), u_0, arrow(w), arrow(b)) &
-            " if " a eq.not 0 "and" R(div2(a), u_0, arrow(w), arrow(b)) cancelwt gamma(div2(a))
+          G_k (R(div2(a), xi, arrow(mu), arrow(b)), arrow(mu), a, arrow(b))
+            &" if " a eq.not 0 "and" R(div2(a), xi, arrow(mu), arrow(b)) wt gamma(div2(a)),
+          H_k (div2(a), xi, arrow(mu), arrow(b)) &
+            " if " a eq.not 0 "and" R(div2(a), xi, arrow(mu), arrow(b)) cancelwt gamma(div2(a))
         ) \
-      K_k (u_0, arrow(w), arrow(b)) &:=
-        H_k (t(arrow(b)), u_0, arrow(w), arrow(b))
+      K_k (xi, arrow(mu), arrow(b)) &:=
+        H_k (t(arrow(b)), xi, arrow(mu), arrow(b))
     $
     このとき
     $
-      u_0 wt gamma(0), space
-      arrow(w) wt Gamma -->
-      S(u_0, arrow(w), arrow(b)) wt gamma(t), space
-      arrow(K)(u_0, arrow(w), arrow(b)) wt  Delta
+      xi wt gamma(0), space
+      arrow(mu) wt Gamma ==>
+      S(xi, arrow(mu), arrow(b)) wt gamma(t), space
+      arrow(K)(xi, arrow(mu), arrow(b)) wt  Delta
     $
     #struct[
       次を示せば良い．
       $
-        &u_0 wt gamma(0), space
-        arrow(w) wt Gamma, space \
-        &R(div2(a), u_0, arrow(w), arrow(b)) wt gamma(div2(a)) or
-          or.big arrow(H) (div2(a), u_0, arrow(w), arrow(b)) wt Delta \
-        -->
-        &R(a, u_0, arrow(w), arrow(b)) wt gamma(a) or or.big
-        arrow(H) (a, u_0, arrow(w), arrow(b)) wt Delta
+        &xi wt gamma(0), space
+        arrow(mu) wt Gamma, space \
+        &R(div2(a), xi, arrow(mu), arrow(b)) wt gamma(div2(a)) or
+          or.big arrow(H) (div2(a), xi, arrow(mu), arrow(b)) wt Delta \
+        ==>
+        &R(a, xi, arrow(mu), arrow(b)) wt gamma(a) or or.big
+        arrow(H) (a, xi, arrow(mu), arrow(b)) wt Delta
       $
-      これは以下の２つから従う． ここで $R_a := R(a, u_0, arrow(w), arrow(b))$, 
-      $H_a := H(a, u_0, arrow(w), arrow(b))$ と略記している．
+      これは以下の２つから従う． ここで $R_a := R(a, xi, arrow(mu), arrow(b))$, 
+      $H_a := H(a, xi, arrow(mu), arrow(b))$ と略記している．
       $
-        &u_0 wt gamma(0), space
-        arrow(w) wt Gamma, space \
+        &xi wt gamma(0), space
+        arrow(mu) wt Gamma, space \
         &R_(div2(a)) wt gamma(div2(a))  \
-        -->
-        &F(R_(div2(a)), arrow(w), a, arrow(b)) wt gamma(a), space
-        arrow(G)(R_(div2(a)), arrow(w), a, arrow(b)) wt Delta \
+        ==>
+        &F(R_(div2(a)), arrow(mu), a, arrow(b)) wt gamma(a), space
+        arrow(G)(R_(div2(a)), arrow(mu), a, arrow(b)) wt Delta \
 
         &\ &\
 
-        &u_0 wt gamma(0), space
-        arrow(w) wt Gamma, space \
+        &xi wt gamma(0), space
+        arrow(mu) wt Gamma, space \
         &R_(div2(a)) cancelwt gamma(div2(a)), or.big arrow(H)_(div2(a)) wt Delta \
-        -->
-        &F(R_(div2(a)), arrow(w), a, arrow(b)) wt gamma(a), space
+        ==>
+        &F(R_(div2(a)), arrow(mu), a, arrow(b)) wt gamma(a), space
         or.big arrow(H)_(div2(a)) wt Delta
       $
       下はトートロジー， 上は帰納法の仮定より従う．

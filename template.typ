@@ -5,6 +5,8 @@
     title: "",
     authors: (),
     date: (datetime.today().year(), datetime.today().month(), datetime.today().day()),
+    repo: "",
+    license: "CC BY 4.0",
     body) = {
   set document(author: authors, title: title)
 
@@ -33,19 +35,36 @@
 
   show link: set text(weight: "bold", fill: gray)
 
-  align(left)[
-    #block(text(weight: 700, 1.75em, title))
-  ]
-
-  pad(
-    top: .5em,
-    bottom: .5em,
-    x: 2em,
-    grid(
-      columns: (1fr,) * calc.min(3, authors.len()),
-      gutter: 1em,
-      align(right)[#date.at(0)/#date.at(1)/#date.at(2)],
-      ..authors.map(author => align(right, strong(author))),
+  grid(
+    columns: (auto, 1fr, auto),
+    align: (left + horizon, center + bottom, right + top),
+    rect(stroke: none, width: 220pt)[
+      #block(text(weight: 700, 1.75em, title))
+      #pad(
+        top: .5em,
+        x: 1em,
+        grid(
+          gutter: .6em,
+          ..authors.map(author => strong(author)),
+        )
+      )
+    ],
+    stack(),
+    rect(
+      width: 85pt,
+      fill: black,
+      stroke: none,
+      inset: 14pt,
+      text(
+        font: ("JuliaMono", "Noto Sans JP"),
+        fill: white,
+        size: 6pt,        
+      )[
+        #align(left)[repo: #link(repo, emph(repo))]
+        #align(center)[\* \* \*]
+        #align(center)[#strong(license)]
+        #align(center)[#date.at(0)/#date.at(1)/#date.at(2)]
+      ]
     ),
   )
 
